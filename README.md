@@ -1,7 +1,7 @@
 
-# To-Do List Mangement (Backend)
+# To-Do List Management (Backend)
 
-This is the front end of To-Do List app build in Laravel Framework
+This is the back end of the To-Do List app built in Laravel Framework
 
 
 
