@@ -1,0 +1,52 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+enum TaskStatus {
+  TODO @enum(value: 1)
+  DONE @enum(value: 2)
+}
+
+type Query {
+    tasks: [Task] @all
+    me: User @auth
+}
+
+type Mutation {
+  createTask(
+    user_id: ID!,
+    name: String!,
+    description: String!,
+    status: TaskStatus!
+  ): Task! @create
+
+  updateTask(
+    id: ID!, 
+    user_id: ID!
+    name: String
+    description: String
+    status: TaskStatus
+  ): Task! @update
+
+  deleteTask(id: ID!): Task @delete
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    tasks: [Task!]!
+}
+
+extend type User {
+    tasks: [Task!]! @hasMany
+}
+
+type Task {
+  id: ID!
+  user_id: ID!
+  name: String!
+  description: String!
+  status: TaskStatus!
+  user: User! @belongsTo
+}
