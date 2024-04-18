@@ -14,15 +14,8 @@ cp .env.example .env
 
 ```
 
-Create your own database and change the DB variables on .env
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=
-```
+Create your own database and change the DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD on .env
+
 ```bash
 php artisan migrate
 php artisan db:seed
